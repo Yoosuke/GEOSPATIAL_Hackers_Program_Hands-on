@@ -2,11 +2,11 @@
 layout : center-right
 
 # Look-and-Feel
-logo : template/img/logo.png
+logo : assets/img/logo.png
 logo-position : top-right
 
 theme : night
-theme-override : template/css/PITCHME.css
+theme-override : assets/css/PITCHME.css
 highlight : ir-black
 
 # Behavior
