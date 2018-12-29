@@ -1,0 +1,26 @@
+# Layout
+layout : center-right
+
+# Look-and-Feel
+logo : template/img/logo.png
+logo-position : top-right
+
+theme : night
+theme-override : template/css/PITCHME.css
+highlight : ir-black
+
+# Behavior
+transition : none
+published : true
+
+# Plugins
+charts : true
+mathjax : TeX-AMS_HTML-full
+
+# google Analitics
+gatoken :
+
+# Twitter card
+title : "Elixir Lang"
+description : "A functional, concurrent language on the Erlang VM"
+thumbnail : assets/img/screenshot.png
