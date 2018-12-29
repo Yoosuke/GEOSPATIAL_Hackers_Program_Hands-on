@@ -4,9 +4,9 @@
 }
 
 .headline {
-  color: white;
+  color: blue;
   width: 80%;
   font-weight: bold;
-  font-size: 2em !important;
+  font-size: 0.8em !important;
   font-variant: small-caps !important;
 }
