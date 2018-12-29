@@ -1,5 +1,5 @@
 # Layout
-layout : center-right
+layout : center
 
 # Look-and-Feel
 logo : assets/img/logo.png
@@ -8,6 +8,10 @@ logo-position : top-right
 theme : white
 theme-override : assets/css/PITCHME.css
 highlight : ir-black
+
+# basic setting
+transition : none
+code-line-numbers : true
 
 # Behavior
 transition : none
@@ -21,6 +25,8 @@ mathjax : TeX-AMS_HTML-full
 gatoken :
 
 # Twitter card
-title : "Elixir Lang"
-description : "A functional, concurrent language on the Erlang VM"
+title : "GEOSPATIAL Hackers Program Hands-on"
+description : "GEOSPATIAL Hackers Program Hands-on"
 thumbnail : assets/img/screenshot.png
+
+footnote : "GEOSPATIAL Hackers Program Hands-on" 

@@ -1,8 +1,10 @@
-@snap[north headline] @css[heading](GEOSPATIAL Hackers Program Hands-on) @snapend
+# @css[headline](GEOSPATIAL Hackers Program Hands-on)
 
 ---
+@transition[zoom-in fade-out]
 ## アジェンダ
 
+---
 1. 準備 
    1. ハンズオンのゴール
 2. WebServerを構築しよう。
@@ -13,8 +15,6 @@
 4. 内部APIを呼び出してみよう。
    1. Vue + axios
 5. DBにDataを入れてみよう。
-
 ---
-
 ## 準備
 
