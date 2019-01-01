@@ -69,8 +69,8 @@ lib/App名_web/template/layout/app.html.eex
   </head>
 ```
 
-@[10-11]
-@[14-22]
+@[55-56]
+@[58-67]
 
 ---
 
