@@ -42,7 +42,7 @@
 
 lib/App名_web/template/layout/app.html.eex
 
-```lib/App名_web/template/layout/app.html.eex
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>

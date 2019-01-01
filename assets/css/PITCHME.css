@@ -10,3 +10,7 @@
   font-size: 0.8em !important;
   font-variant: small-caps !important;
 }
+
+.code {
+  font-size: 0.5em;
+}
