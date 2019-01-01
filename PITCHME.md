@@ -42,9 +42,9 @@
 
 lib/App名_web/template/layout/app.html.eex
 
-```
-@size[0.2em](<!DOCTYPE html>)
-@size[0.2em](<html lang="en">
+@size[0.2em](```
+<!DOCTYPE html>
+<html lang="en">
   <head>
 
     //...省略
@@ -66,8 +66,8 @@ lib/App名_web/template/layout/app.html.eex
         }
     </style>
 
-  </head>)
-```
+  </head>
+```)
 
 ---
 
