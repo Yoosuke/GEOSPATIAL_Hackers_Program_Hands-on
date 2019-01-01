@@ -42,7 +42,6 @@
 
 lib/App名_web/template/layout/app.html.eex
 
-```
 @css[code](
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +67,7 @@ lib/App名_web/template/layout/app.html.eex
     </style>
 
   </head>)
-```
+
 
 ---
 
