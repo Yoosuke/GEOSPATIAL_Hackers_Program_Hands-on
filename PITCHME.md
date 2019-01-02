@@ -96,7 +96,8 @@ lib/App名_web/template/page/index.html.eex
 </script>
 
 ```
-
+@[5-11]
+@[13-15]
 ---
 ## モジュールの導入
 #### [smallex](https://hex.pm/packages/smallex)
@@ -125,7 +126,7 @@ mix.exs
 
 #...省略
 ```
-
+@[15]
 
 ---
 ## 外部APIの取得
@@ -153,7 +154,7 @@ lib/App名_web/template/layout/app.html.eex
   </head>
 
 ```
-
+@[10-11]
 ---
 
 ## APIの作成
@@ -172,12 +173,14 @@ Add the resource to your :api scope in lib/test_web/router.ex:
 
     resources "/locations", LocationController, except: [:new, :edit]
 
-
 Remember to update your repository by running migrations:
 
     $ mix ecto.migrate
 
 ```
+@[3]
+@[7]
+
 ---
 
 lib/test_web/router.ex
@@ -192,65 +195,72 @@ lib/test_web/router.ex
   end
 #...省略
 ```
+@[5]
 ---
 ```elixir
 iex -S mix phx.server
 ```
 ---
 REST APIクライアントを使って、データをインプットやアウトプットする
-以下を受ける
 
-Firefox「RESTClient」
-https://addons.mozilla.org/ja/firefox/addon/restclient/
+今回は、Firefoxの「RESTClient」を利用して説明します。
+[「Firefoxのダウンロード」](https://www.mozilla.org/ja/firefox/new/)はこちら
 
-Chrome「Postman」
-https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop
+[Firefox「RESTClient」](https://addons.mozilla.org/ja/firefox/addon/restclient/)
 
----
-## DB操作を作成
-
----
-lib/util/db.ex
-```elixir
-
-defmodule Db do
-  def query( sql ) when sql != "" do
-    { :ok, result } = Ecto.Adapters.SQL.query( Test.Repo  , sql, [] )
-    result
-  end
-  def columns_rows( result ) do
-    result
-    |> rows
-    |> Enum.map( fn row -> Enum.into( List.zip( [ columns( result ), row ] ), %{} ) end )
-  end
-  def rows( %{ rows: rows } = _result ), do: rows
-  def columns( %{ columns: columns } = _result ), do: columns
-end
-
-```
-Test.Repoは自分のApp環境の名前に合わせる
+[Chrome「Postman」](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
 
 ---
 
-
----
-
-```SQL
-
-# \dt
-
-# SELECT * FROM locations; 
-
-```
-
-
----
 ## 内部APIを呼び出し
 
 ---
 
 ## 表示
 ```html
+
+<h1>Location</h1>
+<table border="0">
+<tr v-for="(result, index) in results">
+    <td style="padding: 10px;">{{ result.lng }}</td>
+    <td style="padding: 10px;">{{ result.lat }}</td>
+    <td style="padding: 10px;">{{ result.pointname }}</td>
+</tr>
+</table>
+
+<script>
+
+    var app = new Vue
+    ( {
+        el: '#app',
+        data: 
+        {
+            results: [],
+        }, 
+        mounted()
+        {
+            axios.get( '/locations' )
+            .then( response => { this.results = response.data.data } )
+        },
+    } )
+</script>
+
+
+---
+## 追加・更新・削除の作成
+
+```html
+
+<h1>Location</h1>
+<table border="0">
+<tr v-for="(result, index) in results">
+    <td style="padding: 10px;"><input type="text" v-model="result.lat"></td>
+    <td style="padding: 10px;"><input type="text" v-model="result.lng"></td>
+    <td style="padding: 10px;"><input type="text" v-model="result.pointname"></td>
+</tr>
+</table>
+<button v-on:click="onUpdate">全件更新</button>
+
 <script>
 
     var app = new Vue
@@ -284,16 +294,82 @@ Test.Repoは自分のApp環境の名前に合わせる
           },
     } )
 </script>
+```
+@[5-7]
+@[10]
+@[14-30]
+---
+## DB操作を作成
+
+---
+
+lib/util/db.ex
+
+```elixir
+defmodule Db do
+  def query( sql ) when sql != "" do
+    { :ok, result } = Ecto.Adapters.SQL.query( Test.Repo  , sql, [] )
+    result
+  end
+  def columns_rows( result ) do
+    result
+    |> rows
+    |> Enum.map( fn row -> Enum.into( List.zip( [ columns( result ), row ] ), %{} ) end )
+  end
+  def rows( %{ rows: rows } = _result ), do: rows
+  def columns( %{ columns: columns } = _result ), do: columns
+end
+
+```
+Test.Repoは自分のApp環境の名前に合わせる
+@[3]
+
+---
+
+```SQL
+
+# \dt
+
+# SELECT * FROM locations; 
+
+# 
+
+```
 
 
 ---
-## 追加・更新・削除の作成
+
 
 ---
 ## Mapへのポイント追加との連携
 
 ---
 ## 2点間の距離を求める
+
+---
+
+lib/App名_web/template/layout/app.html.eex
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    //...省略
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    //以下を追加
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/turf/v1.4.0/turf.min.js'></script> 
+
+    //...省略
+
+  </head>
+
+```
+---
+
+
+
 
 ---
 利用サービス
