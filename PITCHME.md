@@ -69,8 +69,8 @@ lib/App名_web/template/layout/app.html.eex
   </head>
 ```
 
-@[55-56]
-@[58-67]
+@[10-11]
+@[13-22]
 
 ---
 
@@ -100,8 +100,10 @@ lib/App名_web/template/page/index.html.eex
 ## モジュールの導入
 #### [smallex](https://hex.pm/packages/smallex)
 
-```mix.exs
+---
+mix.exs
 
+```
 #...省略
 
  defp deps do
@@ -121,8 +123,6 @@ lib/App名_web/template/page/index.html.eex
   end
 
 #...省略
-
-
 ```
 
 
