@@ -1,10 +1,11 @@
+@transition[none]
 # @css[headline](GEOSPATIAL Hackers Program Hands-on)
 
 ---
-@transition[zoom-in fade-out]
 ## アジェンダ
 
 ---
+
 1. 準備 
    1. ハンズオンのゴール
 2. WebServerを構築しよう。
@@ -42,7 +43,7 @@
 
 lib/App名_web/template/layout/app.html.eex
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -76,7 +77,7 @@ lib/App名_web/template/layout/app.html.eex
 
 lib/App名_web/template/page/index.html.eex
 
-```
+```html
 <script>
 
     <div id="map"></div>
@@ -103,7 +104,7 @@ lib/App名_web/template/page/index.html.eex
 ---
 mix.exs
 
-```
+```elixir
 #...省略
 
  defp deps do
@@ -131,7 +132,8 @@ mix.exs
 
 ---
 
-```lib/App名_web/template/layout/app.html.eex
+lib/App名_web/template/layout/app.html.eex
+```html
 
 <!DOCTYPE html>
 <html lang="en">
@@ -155,14 +157,61 @@ mix.exs
 ---
 
 ## APIの作成
-
----
-## DBの作成
-
 ---
 
+```elixir
 
-```lib/util/db.ex
+mix phx.gen.json Api Location locations lng:float lat:float pointname:string
+
+```
+
+---
+
+```elixir
+Add the resource to your :api scope in lib/test_web/router.ex:
+
+    resources "/locations", LocationController, except: [:new, :edit]
+
+
+Remember to update your repository by running migrations:
+
+    $ mix ecto.migrate
+
+```
+---
+
+lib/test_web/router.ex
+
+```elixir
+#...省略
+  scope "/", TestWeb do
+    pipe_through :browser
+
+    get "/", PageController, :index
+    resources "/locations", LocationController, except: [:new, :edit] #<- 追加
+  end
+#...省略
+```
+---
+```elixir
+iex -S mix phx.server
+```
+---
+REST APIクライアントを使って、データをインプットやアウトプットする
+以下を受ける
+
+Firefox「RESTClient」
+https://addons.mozilla.org/ja/firefox/addon/restclient/
+
+Chrome「Postman」
+https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop
+
+---
+## DB操作を作成
+
+---
+lib/util/db.ex
+```elixir
 
 defmodule Db do
   def query( sql ) when sql != "" do
@@ -182,7 +231,60 @@ end
 Test.Repoは自分のApp環境の名前に合わせる
 
 ---
+
+
+---
+
+```SQL
+
+# \dt
+
+# SELECT * FROM locations; 
+
+```
+
+
+---
 ## 内部APIを呼び出し
+
+---
+
+## 表示
+```html
+<script>
+
+    var app = new Vue
+    ( {
+        el: '#app',
+        data: 
+        {
+            results: [],
+        }, 
+        mounted()
+        {
+            axios.get( '/locations' )
+            .then( response => { this.results = response.data.data } )
+        },
+        methods:
+        {
+          onUpdate: async function( evt )
+          {
+            this.results.forEach( ( result, i ) => 
+            {
+              axios.put( '/locations/' + result.id,
+              {
+                  'location':
+                  {
+                    'lat': result.lat,
+                    'lng': result.lng,
+                    'pointname': result.pointname
+                  }
+              })
+            })
+          },
+    } )
+</script>
+
 
 ---
 ## 追加・更新・削除の作成
@@ -195,9 +297,10 @@ Test.Repoは自分のApp環境の名前に合わせる
 
 ---
 利用サービス
-[https://leafletjs.com](https://leafletjs.com)
+[leafletjs](https://leafletjs.com)
 [国土地理院](https://maps.gsi.go.jp)
 [TURF](http://turfjs.org/getting-started/)
+[Firefox「RESTClient」](https://addons.mozilla.org/ja/firefox/addon/restclient/)
 
 ---
 利用技術の紹介
@@ -215,3 +318,4 @@ Test.Repoは自分のApp環境の名前に合わせる
 [CART](https://carto.com/)
 [SPARQL](https://www.slideshare.net/uedayou/web-apisparql)
 [QGIS](https://www.qgis.org/)
+[地図tile](https://wiki.openstreetmap.org/wiki/JA:%E3%82%BF%E3%82%A4%E3%83%AB)

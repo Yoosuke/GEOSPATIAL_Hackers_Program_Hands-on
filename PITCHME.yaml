@@ -10,7 +10,7 @@ theme-override : assets/css/PITCHME.css
 highlight : ir-black
 
 # basic setting
-transition : none
+transition : zoom-in fade-out
 code-line-numbers : true
 
 # Behavior
