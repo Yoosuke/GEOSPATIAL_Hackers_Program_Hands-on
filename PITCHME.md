@@ -204,11 +204,9 @@ iex -S mix phx.server
 REST APIクライアントを使って、データをインプットやアウトプットする
 
 今回は、Firefoxの「RESTClient」を利用して説明します。
-[「Firefoxのダウンロード」](https://www.mozilla.org/ja/firefox/new/)はこちら
-
-[Firefox「RESTClient」](https://addons.mozilla.org/ja/firefox/addon/restclient/)
-
-[Chrome「Postman」](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
+* [「Firefoxのダウンロード」](https://www.mozilla.org/ja/firefox/new/)はこちら
+* [Firefox「RESTClient」](https://addons.mozilla.org/ja/firefox/addon/restclient/)
+* [Chrome「Postman」](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
 
 ---
 
@@ -244,13 +242,12 @@ REST APIクライアントを使って、データをインプットやアウト
         },
     } )
 </script>
-
+```
 
 ---
 ## 追加・更新・削除の作成
 
 ```html
-
 <h1>Location</h1>
 <table border="0">
 <tr v-for="(result, index) in results">
@@ -295,6 +292,7 @@ REST APIクライアントを使って、データをインプットやアウト
     } )
 </script>
 ```
+
 @[5-7]
 @[10]
 @[14-30]
@@ -321,6 +319,7 @@ defmodule Db do
 end
 
 ```
+
 Test.Repoは自分のApp環境の名前に合わせる
 @[3]
 
@@ -331,15 +330,9 @@ Test.Repoは自分のApp環境の名前に合わせる
 # \dt
 
 # SELECT * FROM locations; 
-
-# 
-
+  
 ```
-
-
----
-
-
+@[4]
 ---
 ## Mapへのポイント追加との連携
 
@@ -366,32 +359,29 @@ lib/App名_web/template/layout/app.html.eex
   </head>
 
 ```
----
-
-
-
+@[10]
 
 ---
 利用サービス
-[leafletjs](https://leafletjs.com)
-[国土地理院](https://maps.gsi.go.jp)
-[TURF](http://turfjs.org/getting-started/)
-[Firefox「RESTClient」](https://addons.mozilla.org/ja/firefox/addon/restclient/)
+* [leafletjs](https://leafletjs.com)
+* [国土地理院](https://maps.gsi.go.jp)
+* [TURF](http://turfjs.org/getting-started/)
+* [Firefox「RESTClient」](https://addons.mozilla.org/ja/firefox/addon/restclient/)
 
 ---
 利用技術の紹介
-[Elixir](https://elixir-lang.org/)
-[Phoenix](https://phoenixframework.org/)
-[PostgreSQL](https://www.postgresql.org/)
-[Vue.js](https://jp.vuejs.org/index.html)
+* [Elixir](https://elixir-lang.org/)
+* [Phoenix](https://phoenixframework.org/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Vue.js](https://jp.vuejs.org/index.html)
 
 ---
 オープンデータ
 
 ---
 参考情報
-[OpenStreetMap](https://openstreetmap.jp)
-[CART](https://carto.com/)
-[SPARQL](https://www.slideshare.net/uedayou/web-apisparql)
-[QGIS](https://www.qgis.org/)
-[地図tile](https://wiki.openstreetmap.org/wiki/JA:%E3%82%BF%E3%82%A4%E3%83%AB)
+* [OpenStreetMap](https://openstreetmap.jp)
+* [CART](https://carto.com/)
+* [SPARQL](https://www.slideshare.net/uedayou/web-apisparql)
+* [QGIS](https://www.qgis.org/)
+* [地図tile](https://wiki.openstreetmap.org/wiki/JA:%E3%82%BF%E3%82%A4%E3%83%AB)
