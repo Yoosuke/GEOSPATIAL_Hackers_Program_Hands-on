@@ -48,15 +48,11 @@ lib/App名_web/template/layout/app.html.eex
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     //...省略
-
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-
     //以下のCSS(<style>から</style>まで）と、leaflet.jsのCDN（以下２行）を追加
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
-    
     <style>
         body{
             margin: 0;
@@ -67,20 +63,20 @@ lib/App名_web/template/layout/app.html.eex
             height: 500px;
         }
     </style>
-
   </head>
 ```
 
-@[10-11](app.html.eexの<head>タグの中にCDNを追加する)
-@[13-22](<style>を追加する)
+@[6-8](app.html.eexの<head>タグの中にCDNを追加する)
+@[9-18](<style>を追加する)
 
 ---
 
 lib/App名_web/template/page/index.html.eex
 
+---
+
 ```html
 <script>
-
     <div id="map"></div>
     <script>
         var map = L.map('map').setView([35.70811, 139.76268],11);
@@ -93,12 +89,12 @@ lib/App名_web/template/page/index.html.eex
           L.marker([35.70811,139.76268]).addTo(map)
             .bindPopup('文京区')
             .openPopup();
-
 </script>
-
 ```
-@[5-11]
-@[13-15]
+@[4](.setView([緯度,経度],zoom倍率)をセットする)
+@[5](L.titleLayer('タイル.pngをセットする'))
+@[6](attribution:'タイルの提供先を明記する')
+@[12-14](マーカーを着けたい箇所を明記する)
 ---
 ## モジュールの導入
 #### [smallex](https://hex.pm/packages/smallex)
@@ -127,7 +123,7 @@ mix.exs
 
 #...省略
 ```
-@[15]
+@[15](:smallexのモジュールを追加)
 
 ---
 ## 外部APIの取得
@@ -136,26 +132,21 @@ mix.exs
 
 lib/App名_web/template/layout/app.html.eex
 ```html
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     //...省略
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-
     // 以下２行（Vue.jsのCDN、AxiosのCDN) を新たに追加
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-
     //...省略
-
   </head>
 
 ```
-@[10-11]
+@[6-8](Vue.jsとAxiosのCDNを追記)
 ---
 
 ## APIの作成
@@ -179,8 +170,7 @@ Remember to update your repository by running migrations:
     $ mix ecto.migrate
 
 ```
-@[3]
-@[7]
+@[3](lib/test_web/router.exに追記する)
 
 ---
 
@@ -197,6 +187,20 @@ lib/test_web/router.ex
 #...省略
 ```
 @[5]
+---
+
+```elixir
+Add the resource to your :api scope in lib/test_web/router.ex:
+
+    resources "/locations", LocationController, except: [:new, :edit]
+
+Remember to update your repository by running migrations:
+
+    $ mix ecto.migrate
+
+```
+@[7](コンソールに戻り、migrateする)
+
 ---
 ```elixir
 iex -S mix phx.server
