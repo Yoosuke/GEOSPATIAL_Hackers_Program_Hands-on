@@ -67,7 +67,7 @@ lib/App名_web/template/layout/app.html.eex
 ```
 
 @[6-8](app.html.eexの<head>タグの中にCDNを追加する)
-@[9-18](<style>を追加する)
+@[9-18](styleを追加する)
 
 ---
 
