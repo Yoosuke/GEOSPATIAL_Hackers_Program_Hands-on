@@ -66,7 +66,7 @@ lib/App名_web/template/layout/app.html.eex
   </head>
 ```
 
-@[6-8](app.html.eexの<head>タグの中にCDNを追加する)
+@[7-8](app.html.eexの<head>タグの中にCDNを追加する)
 @[9-18](styleを追加する)
 
 ---
@@ -91,9 +91,9 @@ lib/App名_web/template/page/index.html.eex
             .openPopup();
 </script>
 ```
-@[4](.setView([緯度,経度],zoom倍率)をセットする)
-@[5](L.titleLayer('タイル.pngをセットする'))
-@[6](attribution:'タイルの提供先を明記する')
+@[4](setView（［緯度,経度］,zoom倍率）をセットする)
+@[5](titleLayerに'タイル.pngをセットする')
+@[6](attributionに'タイルの提供先を明記する')
 @[12-14](マーカーを着けたい箇所を明記する)
 ---
 ## モジュールの導入
@@ -123,7 +123,7 @@ mix.exs
 
 #...省略
 ```
-@[15](:smallexのモジュールを追加)
+@[15](smallexのモジュールを追加)
 
 ---
 ## 外部APIの取得
