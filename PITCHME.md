@@ -76,6 +76,7 @@ lib/App名_web/template/page/index.html.eex
 ---
 
 ```html
+
 <script>
     <div id="map"></div>
     <script>
@@ -90,11 +91,12 @@ lib/App名_web/template/page/index.html.eex
             .bindPopup('文京区')
             .openPopup();
 </script>
+
 ```
-@[4](setView（［緯度,経度］,zoom倍率）をセットする)
-@[5](titleLayerに'タイル.pngをセットする')
-@[6](attributionに'タイルの提供先を明記する')
-@[12-14](マーカーを着けたい箇所を明記する)
+@[5](setView（［緯度,経度］,zoom倍率）をセットする)
+@[6](titleLayerに'タイル.pngをセットする')
+@[7](attributionに'タイルの提供先を明記する')
+@[13-15](マーカーを着けたい箇所を明記する)
 ---
 ## モジュールの導入
 #### [smallex](https://hex.pm/packages/smallex)
