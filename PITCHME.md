@@ -94,8 +94,8 @@ lib/App名_web/template/page/index.html.eex
 
 ```
 @[5](setView（［緯度,経度］,zoom倍率）をセットする)
-@[6](titleLayerに'タイル.pngをセットする')
-@[7](attributionに'タイルの提供先を明記する')
+@[6](titleLayerにタイル.pngをセットする)
+@[7](attributionにタイルの提供先を明記する)
 @[13-15](マーカーを着けたい箇所を明記する)
 ---
 ## モジュールの導入
