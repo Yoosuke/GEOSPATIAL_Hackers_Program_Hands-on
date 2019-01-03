@@ -93,10 +93,12 @@ lib/App名_web/template/page/index.html.eex
 </script>
 
 ```
-@[5]( setViewに（［緯度,経度］,zoom倍率）をセットする)
+
+@[5]
 @[6]( titleLayerにタイル.pngをセットする)
 @[7]( attributionにタイルの提供先を明記する)
 @[13-15]( マーカーを着けたい箇所を明記する)
+
 ---
 ## モジュールの導入
 #### [smallex](https://hex.pm/packages/smallex)
