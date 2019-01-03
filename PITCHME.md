@@ -43,6 +43,7 @@
 
 lib/App名_web/template/layout/app.html.eex
 
+---
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -70,8 +71,8 @@ lib/App名_web/template/layout/app.html.eex
   </head>
 ```
 
-@[10-11]
-@[13-22]
+@[10-11](app.html.eexの<head>タグの中にCDNを追加する)
+@[13-22](<style>を追加する)
 
 ---
 
