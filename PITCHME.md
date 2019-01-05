@@ -20,6 +20,9 @@
 ## 準備
 
 ---
+## エディタのインストール
+
+---
 ## Elixirのインストール
 
 ---
@@ -93,7 +96,7 @@ lib/App名_web/template/page/index.html.eex
 </script>
 
 ```
-@[5]
+
 ---
 ## モジュールの導入
 #### [smallex](https://hex.pm/packages/smallex)
@@ -106,7 +109,7 @@ mix.exs
 
  defp deps do
     [
-     {:phoenix, "~> 1.4.0"},
+      {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.0"},
@@ -151,6 +154,8 @@ lib/App名_web/template/layout/app.html.eex
 ## APIの作成
 ---
 
+コンソール上で
+
 ```elixir
 
 mix phx.gen.json Api Location locations lng:float lat:float pointname:string
@@ -185,7 +190,7 @@ lib/test_web/router.ex
   end
 #...省略
 ```
-@[5]
+@[6]
 ---
 
 ```elixir
@@ -204,9 +209,11 @@ Remember to update your repository by running migrations:
 ```elixir
 iex -S mix phx.server
 ```
----
-REST APIクライアントを使って、データをインプットやアウトプットする
+@[1](コンソールからサーバーを起動します。)
 
+---
+
+REST APIクライアントを使って、データをインプットやアウトプットする
 今回は、Firefoxの「RESTClient」を利用して説明します。
 * [「Firefoxのダウンロード」](https://www.mozilla.org/ja/firefox/new/)はこちら
 * [Firefox「RESTClient」](https://addons.mozilla.org/ja/firefox/addon/restclient/)
@@ -306,23 +313,7 @@ REST APIクライアントを使って、データをインプットやアウト
 ---
 
 lib/util/db.ex
-
-```elixir
-defmodule Db do
-  def query( sql ) when sql != "" do
-    { :ok, result } = Ecto.Adapters.SQL.query( Test.Repo  , sql, [] )
-    result
-  end
-  def columns_rows( result ) do
-    result
-    |> rows
-    |> Enum.map( fn row -> Enum.into( List.zip( [ columns( result ), row ] ), %{} ) end )
-  end
-  def rows( %{ rows: rows } = _result ), do: rows
-  def columns( %{ columns: columns } = _result ), do: columns
-end
-
-```
+@code[elixir zoom-01](src/elixir/lib-util-db.ex)
 
 Test.Repoは自分のApp環境の名前に合わせる
 @[3]
