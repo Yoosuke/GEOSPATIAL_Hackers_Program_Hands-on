@@ -2,8 +2,11 @@
 # @css[headline](GEOSPATIAL Hackers Program Hands-on)
 
 ---
+@snap[noth]
+@css[agenda](アジェンダ)
+@snapend
+
 @snap[west]
-@css[agenda](アジェンダ)<br/>
 @css[agenda](1.WebGISを作ろう)<br/>
 @css[agenda](2.GISとは)<br/>
 @css[agenda](3.地理空間情報とは)<br/>
