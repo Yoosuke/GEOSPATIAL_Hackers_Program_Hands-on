@@ -51,20 +51,71 @@ WebGISは、インターネット技術を使用したGISのことです。
 ---
 ## エディタのインストール
 
+テキストエディタ、普段ご利用のものをお使いください。
+入ってない方は、この講座では以下を利用しています。
+[VSCODE](https://code.visualstudio.com/)
+
+[インストール後にElixirのアドイン追加](https://marketplace.visualstudio.com/items?itemName=mjmcloug.vscode-elixir)<br/>
+
 ---
 ## Elixirのインストール
+今回は、Elixirという言語を利用しますので
+
+お使いの環境に合わせて、インストールしてください。
+
+[Elixir](https://elixir-lang.org/install.html)
 
 ---
 ## Elixirとは
 
+> Elixir (エリクサー) は並行処理の機能や関数型といった特徴を持つ、Erlangの仮想マシン (BEAM) 上で動作するコンピュータプログラミング言語である。ElixirはErlangで実装されているため、分散システム、耐障害性、ソフトリアルタイムシステム等の機能を使用することができるが、拡張機能として、マクロを使ったメタプログラミング、そしてポリモーフィズムなどのプログラミング・パラダイムもプロトコルを介して実装されている。
+
+引用元 [Wiki](https://ja.wikipedia.org/wiki/Elixir_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E))
+
 ---
 ## PostgreSQLのインストール
+
+DBにPostgreSQLを利用します。まだインストールされてない方は以下より
+
+[インストーラーでインストール](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)<br/>
+
+ご利用の環境に合わせてダウンロードください。<br/>
+今回は、version 11.1 をダウンロードします。
 
 ---
 ## Phoenixframeworkのインストール
 
+Webのフレームワークとして、Phoenixを利用します。
+
+[Phoenix](https://hexdocs.pm/phoenix/installation.html)
+コマンドライン（Windowsならプロンプト、Macならターミナル）
+より、以下を入力してください。
+
+```
+$ mix archive.install hex phx_new 1.4.0
+```
+
 ---
 ## Serverを立ち上げよう
+
+```
+mix phx.new sample
+
+Fetch and install dependencies? [Yn] （←y、Enterを入力）
+```
+---
+## Serverを起動しよう！
+```
+cd sample
+
+iex -S mix phx.server
+
+```
+---
+serverを起動したら、
+ブラウザで「http://localhost:4000」にアクセスすると、Phoenixで作られたデフォルトのWebページが表示される事を確認しましょう。
+
+無事に見られたら、成功です。
 
 ---
 ## Mapの作成
