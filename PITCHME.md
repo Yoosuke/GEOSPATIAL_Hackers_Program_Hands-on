@@ -342,10 +342,24 @@ REST APIクライアントを使って、データをインプットやアウト
 ---
 
 lib/util/db.ex
-@code[elixir](src/elixir/lib-util-db.ex)
+```elixir
 
-Test.Repoは自分のApp環境の名前に合わせる
-@[3]
+defmodule Db do
+  def query( sql ) when sql != "" do
+    { :ok, result } = Ecto.Adapters.SQL.query( Test.Repo  , sql, [] )
+    result
+  end
+  def columns_rows( result ) do
+    result
+    |> rows
+    |> Enum.map( fn row -> Enum.into( List.zip( [ columns( result ), row ] ), %{} ) end )
+  end
+  def rows( %{ rows: rows } = _result ), do: rows
+  def columns( %{ columns: columns } = _result ), do: columns
+end
+
+```
+@[3](Test.Repoは自分のApp環境の名前に合わせる)
 
 ---
 
