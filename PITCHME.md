@@ -342,7 +342,7 @@ REST APIクライアントを使って、データをインプットやアウト
 ---
 
 lib/util/db.ex
-@code[elixir zoom-01](src/elixir/lib-util-db.ex)
+@code[elixir](src/elixir/lib-util-db.ex)
 
 Test.Repoは自分のApp環境の名前に合わせる
 @[3]
