@@ -85,10 +85,9 @@ DBにPostgreSQLを利用します。まだインストールされてない方�
 ---
 ## Phoenixframeworkのインストール
 
-Webのフレームワークとして、Phoenixを利用します。
+Webのフレームワークとして、Phoenixを利用
 
 [Phoenix](https://hexdocs.pm/phoenix/installation.html)<br/>
-コマンドライン
 * Windows->プロンプト
 * Mac->ターミナル
 
