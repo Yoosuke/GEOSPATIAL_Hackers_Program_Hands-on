@@ -2,7 +2,7 @@
 # @css[headline](GEOSPATIAL Hackers Program Hands-on)
 
 ---
-@snap[north-west]
+@snap[west]
 * @css[agenda](アジェンダ)
 * @css[agenda](1.WebGISを作ろう)
 * @css[agenda](2.GISとは)
