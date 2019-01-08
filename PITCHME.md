@@ -87,8 +87,11 @@ DBにPostgreSQLを利用します。まだインストールされてない方�
 
 Webのフレームワークとして、Phoenixを利用します。
 
-[Phoenix](https://hexdocs.pm/phoenix/installation.html)
-コマンドライン（Windowsならプロンプト、Macならターミナル）
+[Phoenix](https://hexdocs.pm/phoenix/installation.html)<br/>
+コマンドライン
+* Windows->プロンプト
+* Mac->ターミナル
+
 より、以下を入力してください。
 
 ```
