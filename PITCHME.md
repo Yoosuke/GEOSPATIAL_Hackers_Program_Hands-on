@@ -359,7 +359,7 @@ defmodule Db do
 end
 
 ```
-@[3](Test.Repoは自分のApp環境の名前に合わせる)
+@[4](Test.Repoは自分のApp環境の名前に合わせる)
 
 ---
 
