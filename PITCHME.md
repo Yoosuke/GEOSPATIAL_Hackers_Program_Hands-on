@@ -2,7 +2,7 @@
 # @css[headline](GEOSPATIAL Hackers Program Hands-on)
 
 ---
-@snap[noth]
+@snap[top]
 @css[agenda](アジェンダ)
 @snapend
 
