@@ -3,11 +3,11 @@
 
 ---
 @snap[west]
-* @css[agenda](アジェンダ)
-* @css[agenda](1.WebGISを作ろう)
-* @css[agenda](2.GISとは)
-* @css[agenda](3.地理空間情報とは)
-* @css[agenda](4.WebGISとは)
+@css[agenda](アジェンダ)<br/>
+@css[agenda](1.WebGISを作ろう)<br/>
+@css[agenda](2.GISとは)<br/>
+@css[agenda](3.地理空間情報とは)<br/>
+@css[agenda](4.WebGISとは)<br/>
 
 @snapend
 
