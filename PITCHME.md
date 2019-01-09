@@ -4,7 +4,6 @@
 ---
 @snap[top]
 @css[agenda](アジェンダ)
-![logo](assets/img/logo.png)
 @snapend
 
 @snap[west]
