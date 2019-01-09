@@ -4,6 +4,7 @@
 ---
 @snap[top]
 @css[agenda](アジェンダ)
+![logo](assets/img/logo.png)
 @snapend
 
 @snap[west]
@@ -56,6 +57,14 @@ WebGISは、インターネット技術を使用したGISのことです。
 [VSCODE](https://code.visualstudio.com/)<br/>
 
 [インストール後にElixirのアドイン追加](https://marketplace.visualstudio.com/items?itemName=mjmcloug.vscode-elixir)<br/>
+
+### エディタをターミナルから開く方法
+
+エディタを開き
+Command + Shift + Pでコマンドパレット開く。
+「Shell」を検索しインストール。
+
+ターミナルから```codeで```起動できます。
 
 ---
 ## Elixirのインストール
