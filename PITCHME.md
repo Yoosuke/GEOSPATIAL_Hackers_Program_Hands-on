@@ -4,6 +4,7 @@
 ---
 @snap[top]
 @css[agenda](アジェンダ)
+![logo](assets/img/logo.png)
 @snapend
 
 @snap[west]
@@ -143,6 +144,14 @@ code .
 ```
 
 VSCODEが起動すればOK
+
+### エディタをターミナルから開く方法
+
+エディタを開き
+Command + Shift + Pでコマンドパレット開く。
+「Shell」を検索しインストール。
+
+ターミナルから```codeで```起動できます。
 
 ---
 ## Elixirのインストール
