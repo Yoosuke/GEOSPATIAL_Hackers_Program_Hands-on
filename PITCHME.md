@@ -49,13 +49,100 @@ WebGISは、インターネット技術を使用したGISのことです。
 ## 準備
 
 ---
+## インストールが必要なもの
+* テキストエディタ
+* Elixir
+* node.js
+* PostgreSQL
+* Phoenixframework
+
+---
 ## エディタのインストール
 
 テキストエディタ、普段ご利用のものをお使いください。
+
 入ってない方は、この講座では以下を利用しています。
+
 [VSCODE](https://code.visualstudio.com/)<br/>
 
-[インストール後にElixirのアドイン追加](https://marketplace.visualstudio.com/items?itemName=mjmcloug.vscode-elixir)<br/>
+### アドインの追加
+VSCODEにElixirのアドインを追加します。
+
+![Elixirのアドイン追加](assets/img/vscode-elixir.png)
+
+[MarketplaceよりElixirのアドイン追加](https://marketplace.visualstudio.com/items?itemName=mjmcloug.vscode-elixir) 
+
+---
+## ターミナルからエディタを起動するための準備
+
+VSCODEを開いた状態で
+
+Command + Shift + P で検索窓を開きます。
+
+「Shell」を検索し、インストールします。
+
+![vscodeでshellを検索](assets/img/vscode-shell.png)
+
+---
+## ターミナルとは
+
+プログラミングをする際に、コマンドを用いて操作や設定などを行うためのツール
+
+WindowsとMacで呼び名と使用するコマンドが若干異なる
+
+* Windows->コマンドプロンプト
+* Mac->ターミナル
+
+---
+## ターミナルの使い方（Mac）
+
+現在のディレクトリ内にあるファイルやディレクトリの確認
+```
+ls
+```
+
+任意のディレクトリに移動する方法
+```
+cd  ディレクトリ名
+```
+
+新規ディレクトリ作成
+```
+mkdir 希望のディレクトリ名
+```
+
+## コマンドプロンプトの使い方（Windows）
+
+現在のディレクトリ内にあるファイルやディレクトリの確認
+```
+dir
+```
+
+任意のディレクトリに移動する方法
+```
+cd ディレクトリ名
+```
+
+新規ディレクトリ作成
+```
+md 希望のディレクトリ名
+```
+* mkdirでも作成可能
+
+---
+## ターミナルからエディタを起動する方法
+
+cd コマンドを使用しプロジェクトで使用するディレクトリに移動します
+```
+cd ディレクトリ名
+```
+
+移動後に、下記のコマンドで起動します
+```
+code .
+```
+
+VSCODEが起動すればOK
 
 ---
 ## Elixirのインストール
@@ -63,7 +150,32 @@ WebGISは、インターネット技術を使用したGISのことです。
 
 お使いの環境に合わせて、インストールしてください。
 
-[Elixir](https://elixir-lang.org/install.html)
+[Elixirのインストール方法](https://elixir-lang.org/install.html)
+
+elixirに必要なパッケージ類も一緒にインストールされます。
+
+### Macの場合
+homebrewを使用すると便利です。
+
+[homebrewのインストール方法](https://brew.sh/index_ja)
+
+![MacでElixirのインストール](assets/img/elixir-install-mac.png)
+
+インストール後homebrewをアップデート
+```
+brew update
+```
+アップデート後、下記コマンドでElixirのインストール
+```
+brew install elixir
+```
+
+### Windowsの場合
+![WindowsでElixirのインストール](assets/img/elixir-install-win.png)
+
+[Elixirのインストール方法](https://elixir-lang.org/install.html)内 Windowsの「Download the installer」
+
+よりインストール。
 
 ---
 ## Elixirとは
@@ -71,6 +183,12 @@ WebGISは、インターネット技術を使用したGISのことです。
 > Elixir (エリクサー) は並行処理の機能や関数型といった特徴を持つ、Erlangの仮想マシン (BEAM) 上で動作するコンピュータプログラミング言語である。
 
 引用元 [Wiki](https://ja.wikipedia.org/wiki/Elixir_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E))
+
+---
+## node.jsのインストール
+
+https://nodejs.org/en/download/
+
 
 ---
 ## PostgreSQLのインストール
@@ -81,6 +199,8 @@ DBにPostgreSQLを利用します。まだインストールされてない方�
 
 ご利用の環境に合わせてダウンロードください。<br/>
 今回は、version 11.1 をダウンロードします。
+
+* パスワードはpostgresを設定します。
 
 ---
 ## Phoenixframeworkのインストール
@@ -97,25 +217,40 @@ Webのフレームワークとして、Phoenixを利用
 mix archive.install hex phx_new 1.4.0
 
 ```
+Phoenixがインストールされます。
+
 ---
+
 ## Serverを立ち上げよう
+まずプロジェクトを作成します
 
 ```
 mix phx.new sample
-
-Fetch and install dependencies? [Yn] （←y、Enterを入力）
 ```
+sampleの部分がプロジェクト名になります。
+
+```
+Fetch and install dependencies? [Yn] 
+```
+上記がターミナルに表示されたら　yを入力しEnter。
+
 ---
 ## Serverを起動しよう！
+作成したプロジェクトフォルダに移動します。
 ```
 cd sample
-
-iex -S mix phx.server
-
 ```
+プロジェクトフォルダに移動できたら
+```
+iex -S mix phx.server
+```
+上記コマンドを入力、serverを起動します。
+
 ---
 serverを起動したら、
-ブラウザで「`http://localhost:4000`」にアクセスすると、Phoenixで作られたデフォルトのWebページが表示される事を確認しましょう。
+ブラウザで「`http://localhost:4000`」にアクセス。
+
+Phoenixで作られたデフォルトのWebページが表示される事を確認しましょう。
 
 無事に見られたら、成功です。
 
