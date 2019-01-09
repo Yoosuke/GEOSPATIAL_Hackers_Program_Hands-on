@@ -51,11 +51,11 @@ WebGISは、インターネット技術を使用したGISのことです。
 
 ---
 ## インストールが必要なもの
-* テキストエディタ
-* Elixir
-* node.js
-* PostgreSQL
-* Phoenixframework
+1. テキストエディタ
+1. Elixir
+1. node.js
+1. PostgreSQL
+1. Phoenixframework
 
 ---
 ## エディタのインストール
@@ -66,19 +66,23 @@ WebGISは、インターネット技術を使用したGISのことです。
 
 [VSCODE](https://code.visualstudio.com/)<br/>
 
-### アドインの追加
+---
+## アドインの追加
 VSCODEにElixirのアドインを追加します。
-
-![Elixirのアドイン追加](assets/img/vscode-elixir.png)
 
 [MarketplaceよりElixirのアドイン追加](https://marketplace.visualstudio.com/items?itemName=mjmcloug.vscode-elixir) 
 
+![Elixirのアドイン追加](assets/img/vscode-elixir.png)
+
 ---
 ## ターミナルからエディタを起動するための準備
-
 VSCODEを開いた状態で
 
 Command + Shift + P で検索窓を開きます。
+
+![vscodeのアドイン追加](assets/img/vscode-adin.png)
+
+---
 
 「Shell」を検索し、インストールします。
 
@@ -96,7 +100,6 @@ WindowsとMacで呼び名と使用するコマンドが若干異なる
 
 ---
 ## ターミナルの使い方（Mac）
-
 現在のディレクトリ内にあるファイルやディレクトリの確認
 ```
 ls
@@ -109,11 +112,11 @@ cd  ディレクトリ名
 
 新規ディレクトリ作成
 ```
-mkdir 希望のディレクトリ名
+mkdir 任意のディレクトリ名
 ```
 
+---
 ## コマンドプロンプトの使い方（Windows）
-
 現在のディレクトリ内にあるファイルやディレクトリの確認
 ```
 dir
@@ -126,13 +129,12 @@ cd ディレクトリ名
 
 新規ディレクトリ作成
 ```
-md 希望のディレクトリ名
+md 任意のディレクトリ名
 ```
-* mkdirでも作成可能
+mkdirでも作成可能
 
 ---
 ## ターミナルからエディタを起動する方法
-
 cd コマンドを使用しプロジェクトで使用するディレクトリに移動します
 ```
 cd ディレクトリ名
@@ -145,7 +147,8 @@ code .
 
 VSCODEが起動すればOK
 
-### エディタをターミナルから開く方法
+---
+## エディタをターミナルから開く方法
 
 エディタを開き
 Command + Shift + Pでコマンドパレット開く。
@@ -163,13 +166,15 @@ Command + Shift + Pでコマンドパレット開く。
 
 elixirに必要なパッケージ類も一緒にインストールされます。
 
-### Macの場合
+---
+## Macの場合
 homebrewを使用すると便利です。
 
 [homebrewのインストール方法](https://brew.sh/index_ja)
 
 ![MacでElixirのインストール](assets/img/elixir-install-mac.png)
 
+---
 インストール後homebrewをアップデート
 ```
 brew update
@@ -178,8 +183,8 @@ brew update
 ```
 brew install elixir
 ```
-
-### Windowsの場合
+---
+## Windowsの場合
 ![WindowsでElixirのインストール](assets/img/elixir-install-win.png)
 
 [Elixirのインストール方法](https://elixir-lang.org/install.html)内 Windowsの「Download the installer」
@@ -217,6 +222,8 @@ DBにPostgreSQLを利用します。まだインストールされてない方�
 Webのフレームワークとして、Phoenixを利用
 
 [Phoenix](https://hexdocs.pm/phoenix/installation.html)<br/>
+
+---
 * Windows->プロンプト
 * Mac->ターミナル
 
@@ -224,15 +231,12 @@ Webのフレームワークとして、Phoenixを利用
 
 ```
 mix archive.install hex phx_new 1.4.0
-
 ```
 Phoenixがインストールされます。
 
 ---
-
 ## Serverを立ち上げよう
 まずプロジェクトを作成します
-
 ```
 mix phx.new sample
 ```
